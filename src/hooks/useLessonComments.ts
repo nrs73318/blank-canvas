@@ -44,7 +44,7 @@ export const useLessonComments = (lessonId: string) => {
       const { error } = await supabase.from("lesson_comments").insert({
         lesson_id: lessonId,
         user_id: user.id,
-        comment,
+        content: comment,
       });
 
       if (error) throw error;
@@ -64,7 +64,7 @@ export const useLessonComments = (lessonId: string) => {
 
       const { error } = await supabase
         .from("lesson_comments")
-        .update({ comment })
+        .update({ content: comment })
         .eq("id", commentId)
         .eq("user_id", user.id);
 
