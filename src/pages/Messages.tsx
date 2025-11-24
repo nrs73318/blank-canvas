@@ -66,7 +66,7 @@ const Messages = () => {
       const { error } = await supabase.from("complaints").insert({
         user_id: user?.id,
         subject: supportSubject,
-        message: supportMessage,
+        description: supportMessage,
         category: supportCategory,
         status: "open",
       });
